@@ -172,7 +172,6 @@ class CrBc_Plugins_Payment_Rave_Site extends CrBcAPaymentSitePlugin implements C
 
         $_cart = new CrBcCart($_session_cart);
         $_cart_items = $_cart->getItems(true);
-        print_r($_cart_items);
 
         if (count($_cart_items) == 0) {
 
@@ -226,16 +225,16 @@ class CrBc_Plugins_Payment_Rave_Site extends CrBcAPaymentSitePlugin implements C
 
         $rave->currency = $_cart->currency_code;
 
-        if (empty($rave->force_currency)) {
+        if (!empty($rave->force_currency)) {
 
             $rave->currency = $rave->force_currency;
         }
 
-        var_dump($_order_info->customer);
-        die();
-
         $customer_id = $_session_cart['checkout']['userid'];
         $rave->email = $_order_info->customer->email;
+        $rave->firstname = $_order_info->customer->firstname;
+        $rave->lastname = $_order_info->customer->lastname;
+        $rave->phone = $_order_info->customer->phone;
         $rave->amount = $_order_info->grand_total;
 
         $rave->no_shipping = $_cart->isVirtualOrder($_cart_items) ? 1 : 0;
@@ -312,6 +311,6 @@ class CrBc_Plugins_Payment_Rave_Site extends CrBcAPaymentSitePlugin implements C
             $row->info = $result->body;
         }
 
-        return $row->info;
+        return "Rave";
     }
 }

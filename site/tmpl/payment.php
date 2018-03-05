@@ -50,6 +50,3 @@ $html = "<form onsubmit='event.preventDefault(); pay();'>
 echo $html;
 
 ?>
-
-
- 
