@@ -4,7 +4,7 @@ This plugin allows you to accept payment on Breezing Commerce seamlessly
 
 ## Installation
 
-1. [Download the plugin](bc_plugin_payment_rave.zip?raw=true)
+1. Download the zip file
 2. Go to your admin page
 3. Go to the `Components > Breezing Commerce > Plugins`
 4. Click on `Install`
