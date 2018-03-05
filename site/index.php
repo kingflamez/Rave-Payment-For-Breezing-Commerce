@@ -78,7 +78,6 @@ class CrBc_Plugins_Payment_Rave_Site extends CrBcAPaymentSitePlugin implements C
             }
         } else {
             if ($this->requeryCount > 4) {
-                return "Terminate 2";
                 $result = ['result' => 'failed'];
             } else {
                 sleep(3);
