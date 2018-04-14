@@ -6,14 +6,19 @@ This plugin allows you to accept payment on Breezing Commerce seamlessly
 
 > Register for a `test/staging` account [here](https://raveappv2.herokuapp.com/)
 
+## API Keys
+> `LIVE API KEYS` [here](https://rave.flutterwave.com/dashboard/settings/apis)
+> `TEST/STAGING API KEYS` [here](https://raveappv2.herokuapp.com/dashboard/settings/apis)
+
 ## Installation
 
-1. [Download the latest plugin zip](bc_plugin_payment_rave.zip?raw=true)
+1. [Download the latest plugin zip](https://github.com/kingflamez/Rave-Payment-For-Joomla-Breezing-Commerce/releases/latest)
 2. Go to your admin page
 3. Go to the `Components > Breezing Commerce > Plugins`
 4. Click on `Install`
-5. Choose the [Plugin Zip](bc_plugin_payment_rave.zip?raw=true), upload and install
-6. Click on rave to entter your settings, you are ready to go
+5. Choose the [Plugin Zip](https://github.com/kingflamez/Rave-Payment-For-Joomla-Breezing-Commerce/releases/latest), upload and install
+6. Click on rave to enter your settings, you are ready to go
+
 
 ### Info
 Enable Test Mode for testing and Live mode for transaction
