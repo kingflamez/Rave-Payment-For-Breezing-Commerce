@@ -2,9 +2,13 @@
 
 This plugin allows you to accept payment on Breezing Commerce seamlessly
 
+> Register for a `live` account [here](https://rave.flutterwave.com)
+
+> Register for a `test/staging` account [here](https://raveappv2.herokuapp.com/)
+
 ## Installation
 
-1. [Download the plugin](bc_plugin_payment_rave.zip?raw=true)
+1. [Download the latest plugin zip](bc_plugin_payment_rave.zip?raw=true)
 2. Go to your admin page
 3. Go to the `Components > Breezing Commerce > Plugins`
 4. Click on `Install`

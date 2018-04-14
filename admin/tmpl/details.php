@@ -49,10 +49,23 @@ defined('_JEXEC') or die('Restricted access');
 <div class="form-horizontal">
     <div class="control-group">
         <div class="control-label">
-            <label for="staging_account" class="tip-top hasTooltip" title="<?php echo JHtml::tooltipText('COM_BREEZINGCOMMERCE_RAVE_STAGING_TIP' ); ?>"><?php echo JText::_('COM_BREEZINGCOMMERCE_RAVE_STAGING' ); ?></label>
+            <label for="staging_account" class="tip-top hasTooltip" title="<?php echo JHtml::tooltipText('COM_BREEZINGCOMMERCE_RAVE_STAGING_TIP'); ?>"><?php echo JText::_('COM_BREEZINGCOMMERCE_RAVE_STAGING'); ?></label>
         </div>
         <div class="controls">
             <input type="checkbox" name="staging_account" id="staging_account" value="1"<?php echo $this->entity->staging_account == 1 ? ' checked="checked"' : ''; ?>/>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <div class="control-label">
+            <label for="payment_form" class="tip-top hasTooltip" title="<?php echo JHtml::tooltipText('
+COM_BREEZINGCOMMERCE_RAVE_PAYMENT_FORM_TIP'); ?>"><?php echo JText::_('COM_BREEZINGCOMMERCE_RAVE_PAYMENT_FORM'); ?></label>
+        </div>
+        <div class="controls">
+            <select name="payment_form" id="payment_form">
+                <option value="modal" <?php echo $this->entity->payment_form == "modal" ? ' selected="selected"' : ''; ?>>Modal Form</option>
+                <option value="hosted" <?php echo $this->entity->payment_form == "hosted" ? ' selected="selected"' : ''; ?>>Hosted Form</option>
+            </select>
         </div>
     </div>
 

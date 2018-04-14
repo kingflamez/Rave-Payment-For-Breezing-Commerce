@@ -21,12 +21,14 @@ $postfields['custom_description'] = "Pay for your order on " . $rave->business_n
 $postfields['custom_title'] = $rave->business_name;
 $postfields['customer_phone'] = $rave->phone;
 $postfields['country'] = $rave->country;
-$postfields['redirect_url'] = $rave->redirect_url;
 $postfields['txref'] = $rave->txref;
 $postfields['payment_method'] = $rave->payment_method;
 $postfields['amount'] = $rave->amount + 0;
 $postfields['currency'] = strtoupper($rave->currency);
-$postfields['hosted_payment'] = 1;
+//if ($rave->payment_form === 'hosted') {
+  $postfields['redirect_url'] = $rave->redirect_url;
+  $postfields['hosted_payment'] = 1;
+//}
 ksort($postfields);
 $stringToHash = "";
 foreach ($postfields as $key => $val) {
@@ -35,20 +37,53 @@ foreach ($postfields as $key => $val) {
 
 $stringToHash .= $secretKey;
 $hashedValue = hash('sha256', $stringToHash);
-$meta = array();
-array_push($meta, array('metaname' => 'amount', 'metavalue' => $rave->amount));
-$transactionData = array_merge($postfields, array('integrity_hash' => $hashedValue), array('meta' => $meta));
+$transactionData = array_merge($postfields, array('integrity_hash' => $hashedValue));
 $json = json_encode($transactionData);
 
-$html = "
-    <script type='text/javascript' src='" . $baseUrl . "/flwv3-pug/getpaidx/api/flwpbf-inline.js'></script>
-    <script>
-    document.addEventListener('DOMContentLoaded', function(event) {
-    var data = JSON.parse('" . json_encode($transactionData = array_merge($postfields, array('integrity_hash' => $hashedValue))) . "');
-    getpaidSetup(data);});
-    </script>
-    ";
+$datas = "";
 
+foreach ($transactionData as $key => $value) {
+  $datas .= $key . ": '" . $value . "',";
+}
+
+// if ($rave->payment_form === 'hosted') {
+  $html = "
+      <script type='text/javascript' src='" . $baseUrl . "/flwv3-pug/getpaidx/api/flwpbf-inline.js'></script>
+      <script>
+      document.addEventListener('DOMContentLoaded', function(event) {
+      var data = JSON.parse('" . json_encode($transactionData = array_merge($postfields, array('integrity_hash' => $hashedValue))) . "');
+      getpaidSetup(data);});
+      </script>
+      ";
+// }
+//  else {
+//   $html = "
+//         <script type='text/javascript' src='" . $baseUrl . "/flwv3-pug/getpaidx/api/flwpbf-inline.js'></script>
+//         <script>
+//         document.addEventListener('DOMContentLoaded', function(event) {
+//         var data = JSON.parse('" . json_encode($transactionData = array_merge($postfields, array('integrity_hash' => $hashedValue))) . "');
+//         getpaidSetup({" .
+//     $datas
+//     . "
+//         onclose: function() {
+//             window.location = '" . $rave->redirect_url . "?txref=" . $rave->txref . "&cancelled=true';
+//         },
+//           callback: function(response) {
+//             var flw_ref = response.tx.flwRef; // collect flwRef returned and pass to a                  server page to complete status check.
+//             console.log('This is the response returned after a charge', response);
+//             if (
+//               response.tx.chargeResponseCode == '00' ||
+//               response.tx.chargeResponseCode == '0'
+//             ) {
+//               window.location = '" . $rave->redirect_url . "?txref=" . $rave->txref . "';
+//             } else {
+//               window.location = '" . $rave->redirect_url . "?txref=" . $rave->txref . "';
+//             }
+//           }
+//     });});
+//         </script>
+//         ";
+// }
 echo $html;
 
 ?>

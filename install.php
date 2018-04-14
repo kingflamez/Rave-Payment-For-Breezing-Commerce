@@ -30,6 +30,7 @@ class CrBcInstallation extends CrBcInstaller {
             `live_sk` varchar(255) NOT NULL,
             `test_pk` varchar(255) NOT NULL,
             `test_sk` varchar(255) NOT NULL,
+            `payment_form` varchar(255) NOT NULL DEFAULT 'modal',
             `logo` varchar(255) NOT NULL,
             `country` varchar(255) NOT NULL,
             `payment_method` varchar(255) NOT NULL
