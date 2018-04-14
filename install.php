@@ -26,8 +26,10 @@ class CrBcInstallation extends CrBcInstaller {
             $db->setQuery("CREATE TABLE IF NOT EXISTS `#__breezingcommerce_plugin_payment_rave` (
             `identity` int(11) NOT NULL,
             `staging_account` tinyint(4) NOT NULL DEFAULT '0',
-            `pk` varchar(255) NOT NULL,
-            `sk` varchar(255) NOT NULL,
+            `live_pk` varchar(255) NOT NULL,
+            `live_sk` varchar(255) NOT NULL,
+            `test_pk` varchar(255) NOT NULL,
+            `test_sk` varchar(255) NOT NULL,
             `logo` varchar(255) NOT NULL,
             `country` varchar(255) NOT NULL,
             `payment_method` varchar(255) NOT NULL

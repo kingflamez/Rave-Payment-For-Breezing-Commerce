@@ -58,19 +58,37 @@ defined('_JEXEC') or die('Restricted access');
 
     <div class="control-group">
         <div class="control-label">
-            <label for="sk" class="tip-top hasTooltip"><?php echo JText::_( 'COM_BREEZINGCOMMERCE_RAVE_SK' ); ?></label>
+            <label for="live_sk" class="tip-top hasTooltip"><?php echo JText::_('COM_BREEZINGCOMMERCE_RAVE_LIVE_SK'); ?></label>
         </div>
         <div class="controls">
-            <input type="text" name="sk" id="sk" value="<?php echo $this->escape( $this->entity->sk); ?>"/>
+            <input type="text" name="live_sk" id="live_sk" value="<?php echo $this->escape($this->entity->live_sk); ?>"/>
         </div>
     </div>
 
-     <div class="control-group">
+    <div class="control-group">
         <div class="control-label">
-            <label for="pk" class="tip-top hasTooltip"><?php echo JText::_( 'COM_BREEZINGCOMMERCE_RAVE_PK' ); ?></label>
+            <label for="live_pk" class="tip-top hasTooltip"><?php echo JText::_('COM_BREEZINGCOMMERCE_RAVE_LIVE_PK'); ?></label>
         </div>
         <div class="controls">
-            <input type="text" name="pk" id="pk" value="<?php echo $this->escape( $this->entity->pk); ?>"/>
+            <input type="text" name="live_pk" id="live_pk" value="<?php echo $this->escape($this->entity->live_pk); ?>"/>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <div class="control-label">
+            <label for="test_sk" class="tip-top hasTooltip"><?php echo JText::_('COM_BREEZINGCOMMERCE_RAVE_TEST_SK'); ?></label>
+        </div>
+        <div class="controls">
+            <input type="text" name="test_sk" id="test_sk" value="<?php echo $this->escape($this->entity->test_sk); ?>"/>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <div class="control-label">
+            <label for="test_pk" class="tip-top hasTooltip"><?php echo JText::_('COM_BREEZINGCOMMERCE_RAVE_TEST_PK'); ?></label>
+        </div>
+        <div class="controls">
+            <input type="text" name="test_pk" id="test_pk" value="<?php echo $this->escape($this->entity->test_pk); ?>"/>
         </div>
     </div>
 

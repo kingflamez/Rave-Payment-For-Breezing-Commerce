@@ -3,12 +3,16 @@
 defined('_JEXEC') or die('Restricted access');
 
 $baseUrl = 'https://api.ravepay.co';
+$secretKey = $rave->live_sk;
+$publicKey = $rave->live_pk;
 if ($rave->staging_account == 1) {
   $baseUrl = 'https://rave-api-v2.herokuapp.com';
+  $secretKey = $rave->test_sk;
+  $publicKey = $rave->test_pk;
 }
 
 $postfields = array();
-$postfields['PBFPubKey'] = $rave->pk;
+$postfields['PBFPubKey'] = $publicKey;
 $postfields['customer_email'] = $rave->email;
 $postfields['customer_firstname'] = $rave->firstname;
 $postfields['custom_logo'] = $rave->logo;
@@ -29,21 +33,19 @@ foreach ($postfields as $key => $val) {
   $stringToHash .= $val;
 }
 
-$stringToHash .= $rave->sk;
+$stringToHash .= $secretKey;
 $hashedValue = hash('sha256', $stringToHash);
 $meta = array();
 array_push($meta, array('metaname' => 'amount', 'metavalue' => $rave->amount));
 $transactionData = array_merge($postfields, array('integrity_hash' => $hashedValue), array('meta' => $meta));
 $json = json_encode($transactionData);
 
-$html = "<form onsubmit='event.preventDefault(); pay();'>
-      <button type='submit' class='btn btn-primary' style='cursor:pointer;' value='Pay Now' id='ravepaybutton'>Pay with Rave</button>
-    </form>
+$html = "
     <script type='text/javascript' src='" . $baseUrl . "/flwv3-pug/getpaidx/api/flwpbf-inline.js'></script>
     <script>
-    function pay() {
+    document.addEventListener('DOMContentLoaded', function(event) {
     var data = JSON.parse('" . json_encode($transactionData = array_merge($postfields, array('integrity_hash' => $hashedValue))) . "');
-    getpaidSetup(data);}
+    getpaidSetup(data);});
     </script>
     ";
 

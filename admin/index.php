@@ -72,8 +72,10 @@ class CrBc_Plugins_Payment_Rave_Admin extends CrBcAPaymentAdminPlugin implements
             $id = $this->identity_column;
             $row->$id = 0;
             $row->staging_account = 0;
-            $row->pk = '';
-            $row->sk = '';
+            $row->live_pk = '';
+            $row->live_sk = '';
+            $row->test_pk = '';
+            $row->test_sk = '';
             $row->logo = '';
             $row->country = '';
             $row->payment_method = '';

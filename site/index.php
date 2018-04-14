@@ -34,8 +34,10 @@ class CrBc_Plugins_Payment_Rave_Site extends CrBcAPaymentSitePlugin implements C
     function requery($rave, $reference)
     {
         $apiLink = 'https://api.ravepay.co/';
+        $secretKey = $rave->live_sk;
         if ($rave->staging_account == 1) {
             $apiLink = 'http://flw-pms-dev.eu-west-1.elasticbeanstalk.com/';
+            $secretKey = $rave->test_sk;
         }
 
         $txref = $reference;
@@ -43,7 +45,7 @@ class CrBc_Plugins_Payment_Rave_Site extends CrBcAPaymentSitePlugin implements C
         $this->requeryCount++;
         $data = array(
             'txref' => $txref,
-            'SECKEY' => $rave->sk,
+            'SECKEY' => $secretKey,
             'last_attempt' => '1'
 	        // 'only_successful' => '1'
         );
