@@ -1,5 +1,10 @@
 # Rave Payment Gateway for Breezing Commerce Joomla
 
+## Requirements
+- A Joomla site
+- A breezing commerce plugin
+- A [Rave Account](https://rave.flutterwave.com)
+
 This plugin allows you to accept payment on Breezing Commerce seamlessly
 
 > Register for a `live` account [here](https://rave.flutterwave.com)
