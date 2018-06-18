@@ -6,7 +6,7 @@ $baseUrl = 'https://api.ravepay.co';
 $secretKey = $rave->live_sk;
 $publicKey = $rave->live_pk;
 if ($rave->staging_account == 1) {
-  $baseUrl = 'https://rave-api-v2.herokuapp.com';
+  $baseUrl = 'https://ravesandboxapi.flutterwave.com';
   $secretKey = $rave->test_sk;
   $publicKey = $rave->test_pk;
 }

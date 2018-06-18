@@ -114,6 +114,7 @@ COM_BREEZINGCOMMERCE_RAVE_PAYMENT_FORM_TIP'); ?>"><?php echo JText::_('COM_BREEZ
                 <option <?php echo $this->entity->country == "NG" ? ' selected' : ''; ?> value="NG">Nigeria</option>
                 <option <?php echo $this->entity->country == "KE" ? ' selected' : ''; ?> value="KE">Kenya</option>
                 <option <?php echo $this->entity->country == "GH" ? ' selected' : ''; ?> value="GH">Ghana</option>
+                <option <?php echo $this->entity->country == "ZA" ? ' selected' : ''; ?> value="GH">South Africa</option>
             </select>
         </div>
     </div>

@@ -14,7 +14,7 @@ This plugin allows you to accept payment on Breezing Commerce seamlessly
 ## API Keys
 > `LIVE API KEYS` [here](https://rave.flutterwave.com/dashboard/settings/apis)
 
-> `TEST/STAGING API KEYS` [here](https://raveappv2.herokuapp.comgi/dashboard/settings/apis)
+> `TEST/STAGING API KEYS` [here](https://ravesandboxapi.flutterwave.com/dashboard/settings/apis)
 
 ## Installation
 
