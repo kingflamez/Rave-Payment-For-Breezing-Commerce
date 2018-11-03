@@ -142,6 +142,43 @@ COM_BREEZINGCOMMERCE_RAVE_PAYMENT_FORM_TIP'); ?>"><?php echo JText::_('COM_BREEZ
         </div>
     </div>
 
+    <div class="control-group">
+        <div class="control-label">
+            <label for="title" class="tip-top hasTooltip"><?php echo JText::_('COM_BREEZINGCOMMERCE_RAVE_TITLE' ); ?></label>
+        </div>
+        <div class="controls">
+            <input type="text" name="title" id="title" value="<?php echo $this->escape( $this->entity->title); ?>"/>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <div class="control-label">
+            <label for="desc" class="tip-top hasTooltip"><?php echo JText::_('COM_BREEZINGCOMMERCE_RAVE_DESC' ); ?></label>
+        </div>
+        <div class="controls">
+            <input type="text" name="desc" id="desc" value="<?php echo $this->escape( $this->entity->desc); ?>"/>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <div class="control-label">
+            <label for="metaname" class="tip-top hasTooltip"><?php echo JText::_('COM_BREEZINGCOMMERCE_RAVE_METANAME' ); ?></label>
+        </div>
+        <div class="controls">
+            <input type="text" name="metaname" id="metaname" value="<?php echo $this->escape( $this->entity->metaname); ?>"/>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <div class="control-label">
+            <label for="metavalue" class="tip-top hasTooltip"><?php echo JText::_('COM_BREEZINGCOMMERCE_RAVE_METAVALUE' ); ?></label>
+        </div>
+        <div class="controls">
+            <input type="text" name="metavalue" id="metavalue" value="<?php echo $this->escape( $this->entity->metavalue); ?>"/>
+        </div>
+    </div>
+
+
 </div>
 
 <input type="hidden" name="identity" value="<?php echo $this->entity->identity;?>"/>

@@ -11,16 +11,37 @@ if ($rave->staging_account == 1) {
   $publicKey = $rave->test_pk;
 }
 
+switch (strtoupper($rave->currency)) {
+  case 'KES':
+    $country = 'KE';
+    break;
+  case 'GHS':
+    $country = 'GH';
+    break;
+  case 'ZAR':
+    $country = 'ZA';
+    break;
+  
+  default:
+    $country = 'NG';
+    break;
+}
+
+$metaname = $rave->metaname;
+$metavalue = $rave->metavalue;
+
+$metaData = array(['metaname' => $metaname, 'metavalue' => $metavalue]);
+
 $postfields = array();
 $postfields['PBFPubKey'] = $publicKey;
 $postfields['customer_email'] = $rave->email;
 $postfields['customer_firstname'] = $rave->firstname;
 $postfields['custom_logo'] = $rave->logo;
+$postfields['custom_title'] = $rave->title;
 $postfields['customer_lastname'] = $rave->lastname;
-$postfields['custom_description'] = "Pay for your order on " . $rave->business_name;
-$postfields['custom_title'] = $rave->business_name;
+$postfields['custom_description'] = $rave->desc; //"Pay for your order on " . $rave->business_name;
 $postfields['customer_phone'] = $rave->phone;
-$postfields['country'] = $rave->country;
+$postfields['country'] = $country;
 $postfields['txref'] = $rave->txref;
 $postfields['payment_method'] = $rave->payment_method;
 $postfields['amount'] = $rave->amount + 0;
@@ -51,7 +72,7 @@ foreach ($transactionData as $key => $value) {
       <script type='text/javascript' src='" . $baseUrl . "/flwv3-pug/getpaidx/api/flwpbf-inline.js'></script>
       <script>
       document.addEventListener('DOMContentLoaded', function(event) {
-      var data = JSON.parse('" . json_encode($transactionData = array_merge($postfields, array('integrity_hash' => $hashedValue))) . "');
+      var data = JSON.parse('" . json_encode($transactionData = array_merge($postfields, array('integrity_hash' => $hashedValue), array('meta' => $metaData))) . "');
       getpaidSetup(data);});
       </script>
       ";

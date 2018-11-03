@@ -78,8 +78,13 @@ class CrBc_Plugins_Payment_Rave_Admin extends CrBcAPaymentAdminPlugin implements
             $row->test_sk = '';
             $row->payment_form = '';
             $row->logo = '';
+            $row->title = '';
+            $row->desc = '';
             $row->country = '';
             $row->payment_method = '';
+            $row->metaname = '';
+            $row->metavalue = '';
+
         }
         
         $id = $this->identity_column;

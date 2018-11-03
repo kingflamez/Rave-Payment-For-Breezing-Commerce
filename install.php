@@ -32,7 +32,10 @@ class CrBcInstallation extends CrBcInstaller {
             `test_sk` varchar(255) NOT NULL,
             `payment_form` varchar(255) NOT NULL DEFAULT 'modal',
             `logo` varchar(255) NOT NULL,
-            `country` varchar(255) NOT NULL,
+            `title` varchar(255) NOT NULL,
+            `desc` varchar(255) NOT NULL,
+            `metaname` varchar(255) NOT NULL,
+            `metavalue` varchar(255) NOT NULL,
             `payment_method` varchar(255) NOT NULL
           ) ENGINE=InnoDB DEFAULT CHARSET=utf8
           ");
