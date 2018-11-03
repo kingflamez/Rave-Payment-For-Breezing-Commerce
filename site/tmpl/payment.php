@@ -58,7 +58,7 @@ foreach ($postfields as $key => $val) {
 
 $stringToHash .= $secretKey;
 $hashedValue = hash('sha256', $stringToHash);
-$transactionData = array_merge($postfields, array('integrity_hash' => $hashedValue));
+$transactionData = array_merge($postfields, array('integrity_hash' => $hashedValue), array('meta' => $metaData));
 $json = json_encode($transactionData);
 
 $datas = "";
